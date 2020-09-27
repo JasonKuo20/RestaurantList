@@ -20,22 +20,22 @@
 ---
 
 1. 開啟終端機 (Terminal)，clone 此專案至本機(Local)電腦
-<p><code>git clone https://github.com/JasonKuo20/RestaurantList.git</code></p>
+<pre><code>git clone https://github.com/JasonKuo20/RestaurantList.git</code></pre>
 
 2. 進入專案資料夾
-<p><code>cd Restaurant_List</p></code>
+<pre><code>cd Restaurant_List</code></pre>
 
 3. 安裝 npm 套件
-<p><code>npm install</p></code>
+<pre><code>npm install</code></pre>
 
 4. 安裝 nodemon 套件，並啟動伺服器，執行程式
-<p><code>npm run dev</p></code>
+<pre><code>npm run dev</code></pre>
 
 5. 當 Terminal 出現以下字樣，表示伺服器已連結成功
-<p><code>The server is listening on http://localhost:3000</p></code>
+<pre><code>The server is listening on http://localhost:3000</code></pre>
 
 6. 訪問 website
-<p><code>http://localhost:3000</p></code>
+<pre><code>http://localhost:3000</code></pre>
 
 ### 使用工具
 
