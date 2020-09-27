@@ -18,7 +18,6 @@ app.use(express.static("public"));
 
 // routes setting
 app.get('/', (req, res) => {
-  console.log("req", restaurantList.results)
   res.render('index', {
     restaurants: restaurantList.results
   })
