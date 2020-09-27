@@ -10,38 +10,40 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-// require restaurant.json
+// sources form restaurant.json
 const restaurantList = require("./restaurant.json");
 
 // setting static files
 app.use(express.static("public"));
 
 // routes setting
-app.get("/", (req, res) => {
-  // past the movie data into 'index' partial template
-  res.render("index", {
+app.get('/', (req, res) => {
+  console.log("req", restaurantList.results)
+  res.render('index', {
     restaurants: restaurantList.results
-  });
-});
+  })
+})
 
-// app.get('/movies/:movie_id', (req, res) => {
-//   //console.log('movie_id', req.params.movie_id)
-//   const movie = movieList.results.find(movie => movie.id.toString() === req.params.movie_id)
-//   res.render('show', {
-//     movie: movie
-//   })
-// })
+app.get('/restaurants/:restaurants_id', (req, res) => {
+  //console.log('restaurants_id', req.params.movie_id)
+  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurants_id)
+  res.render('show', {
+    restaurant: restaurant
+  })
+})
 
-// app.get('/search', (req, res) => {
-//   const keyword = req.query.keyword
-//   const movies = movieList.results.filter(movie => {
-//     return movie.title.toLowerCase().includes(keyword.toLowerCase())
-//   })
-//   res.render('index', {
-//     movies: movies,
-//     keyword: keyword
-//   })
-// })
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const restaurants = restaurantList.results.filter(restaurant => {
+    return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) ||
+      restaurant.category.toLowerCase().includes(keyword.toLowerCase())
+
+  })
+  res.render('index', {
+    restaurants: restaurants,
+    keyword: keyword
+  })
+})
 
 // start and listen on the Express server
 app.listen(port, () => {
